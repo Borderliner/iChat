@@ -1,7 +1,7 @@
 {
-  "name": "project-name",
+  "name": "test1",
   "version": "1.0.0",
-  "description": "Your app's description goes here.",
+  "description": "Test1",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,9 @@
     "key",
     "words"
   ],
-  "author": "Your Name",
-  "license": "MIT"
+  "author": "Psyringe",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
