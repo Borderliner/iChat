@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "Link to your git repository"
+    "url": "https://github.com/Psyringe/NodeMEAN1"
   },
   "keywords": [
-    "your",
-    "key",
-    "words"
+    "nodejs",
+    "mean",
+    "server"
   ],
   "author": "Psyringe",
   "license": "MIT",
