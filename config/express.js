@@ -20,9 +20,11 @@
     app.use(bodyParser.json());
     app.use(methodOverride());
 
+
     app.set('views', './app/views');
     app.set('view engine', 'jade');
 
     require('../app/routes/index.server.routes')(app);
+    app.use(express.static('./public'));
     return app;
  };
