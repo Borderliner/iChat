@@ -1,7 +1,7 @@
 {
-  "name": "test1",
+  "name": "psychat",
   "version": "1.0.0",
-  "description": "Test1",
+  "description": "A simple IRC-Like chat",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

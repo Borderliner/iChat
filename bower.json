@@ -1,0 +1,31 @@
+{
+  "name": "psychat",
+  "description": "A simple IRC-Like chat",
+  "main": "server.js",
+  "authors": [
+    "Psyringe"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "mean",
+    "server"
+  ],
+  "homepage": "https://github.com/Psyringe/NodeMEAN1",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "Materialize": "materialize#~0.97.3"
+  }
+}
