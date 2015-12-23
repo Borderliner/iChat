@@ -1,6 +1,9 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var express = require('./config/express');
+var express = require('./config/express'),
+    database = require('./config/database');
+
+var db = database();
 var app = express();
 
 var port = process.argv[2];
