@@ -52,4 +52,7 @@ UserSchema.virtual('fullName')
         this.lastName = splitName[1] || '';
     });
 
+UserSchema.statics.findOneByUsername = function(username, callback){
+    this.findOne({username: new RegExp(username, 'i')}, callback);
+};
 mongoose.model('User', UserSchema);
