@@ -4,25 +4,38 @@ var mongoose = require('mongoose'),
 var UserSchema = new Schema({
     firstName: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     lastName: {
         type: String,
-        trim: true
+        trim: true,
+        required: false
     },
     email: {
         type: String,
         trim: true,
-        index: true
+        index: true,
+        required: true,
+        match: /.+\@.+\..+/
     },
     username: {
         type: String,
         trim: true,
-        unique: true
+        unique: true,
+        required: true,
     },
-    password: String,
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ['Admin', 'User']
+    }
     website: {
         type: String,
+        required: false,
         get: function(url){
             if(!url){
                 return url;
@@ -59,5 +72,14 @@ UserSchema.statics.findOneByUsername = function(username, callback){
 UserSchema.methods.authenticate = function(password){
     return this.password === password;
 };
+
+UserSchema.path('password').validate(function(password){
+    if(password.length > 32 || password.length < 6){
+        return 'Password must be between 6 and 32 characters';
+    }
+    else {
+        return password;
+    }
+});
 
 mongoose.model('User', UserSchema);
