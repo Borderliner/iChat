@@ -12,7 +12,8 @@ var UserSchema = new Schema({
     },
     email: {
         type: String,
-        trim: true
+        trim: true,
+        index: true
     },
     username: {
         type: String,
