@@ -2,6 +2,7 @@ var User = require('mongoose').model('User');
 
 exports.create = function(req, res, next){
     var user = new User(req.body);
+    user.updated = Date.now();
 
     user.save(function(err){
         if(err){
@@ -42,11 +43,12 @@ exports.userByID = function(req, res, next, id){
     });
 };
 exports.update = function(req, res, next){
+    req.body.updated = Date.now();
     User.findByIdAndUpdate(req.user.id, req.body, function(err, user){
         if(err){
             return(next(err));
         }
-        else{
+        else {
             res.json(user);
         }
     });
