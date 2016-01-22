@@ -16,7 +16,8 @@ var UserSchema = new Schema({
     },
     username: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true
     },
     password: String,
     website: {
@@ -40,5 +41,14 @@ var UserSchema = new Schema({
     updated: Date
 });
 UserSchema.set('toJSON', {getters: true});
+UserSchema.virtual('fullName')
+    .get(function(){
+        return this.firstName + ' ' + this.lastName;
+    })
+    .set(function(fullName){
+        var splitName = fullName.split(' ');
+        this.firstName = splitName[0] || '';
+        this.lastName = splitName[1] || '';
+    });
 
 mongoose.model('User', UserSchema);
