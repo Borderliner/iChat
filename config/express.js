@@ -1,10 +1,10 @@
-var config = require('./config');
-var express = require('express');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var compress = require('compression');
-var methodOverride = require('method-override');
-var session = require('express-session');
+var config = require('./config'),
+    express = require('express'),
+    morgan = require('morgan'),
+    bodyParser = require('body-parser'),
+    compress = require('compression'),
+    methodOverride = require('method-override'),
+    session = require('express-session');
 
 module.exports = function(){
     var app = express();
@@ -15,7 +15,7 @@ module.exports = function(){
     else if(process.env.NODE_ENV === 'production'){
         app.use(compress());
     }
-    
+
     app.use(bodyParser.urlencoded({
         extended: true
     }));
