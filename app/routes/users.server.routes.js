@@ -1,5 +1,6 @@
 //Routes users
-var users = require('../../app/controllers/users.server.controller');
+var users = require('../../app/controllers/users.server.controller'),
+    passport = require('passport');
 
 module.exports = function(app){
     app.route('/users')
@@ -18,4 +19,17 @@ module.exports = function(app){
 
     //Fills the userId part of URL with the content returned by users.userById
     app.param('userId', users.userById);
+
+    app.route('/signup')
+        .get(users.renderSignUp)
+        .post(users.signUp);
+    app.route('/signin')
+        .get(users.renderSignIn)
+        .post(passport.authenticate('local', {
+            successRedirect: '/',
+            failureRedirect: '/signin',
+            failureFlash: true
+        }));
+    app.route('/signout')
+        .get(users.signout);
 };
