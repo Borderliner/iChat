@@ -8,6 +8,7 @@ exports.render = function(req, res){
     }
     //Renders index.jade
     res.render('index', {
-        title: "Hello World!" //Passes title variable to index.jade
+        title: "Welcome!", //Passes title variable to index.jade
+        userFullName: req.user ? req.user.fullName : ''
     });
 };

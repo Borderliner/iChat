@@ -3,5 +3,13 @@ html
   head
     title= title
   body
-    h1= title
+    div
+      if userFullName
+        h3 Welcome + ', ' + userFullName
+        a(href='/signout')
+      else
+        h3 Welcome!
+        a(href='/signup')
+        a(href='/signin')
+    
     img(src="img/nodejs.png")
