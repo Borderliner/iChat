@@ -4,7 +4,8 @@ var config = require('./config'),
     bodyParser = require('body-parser'),
     compress = require('compression'),
     methodOverride = require('method-override'),
-    session = require('express-session');
+    session = require('express-session'),
+    var passport = require('passport');
 
 module.exports = function(){
     var app = express();
@@ -30,6 +31,9 @@ module.exports = function(){
 
     app.set('views', './app/views');
     app.set('view engine', 'jade');
+
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     require('../app/routes/index.server.routes')(app);
     require('../app/routes/users.server.routes')(app);
