@@ -6,6 +6,7 @@ var config = require('./config'),
     compress = require('compression'),
     methodOverride = require('method-override'),
     session = require('express-session'),
+    flash = require('connect-flash'),
     passport = require('passport');
 
 /* This file, modifies the express() object, and passes it along to the
@@ -43,6 +44,7 @@ module.exports = function(){
     app.set('view engine', 'jade');
 
     //Initializes passport for authentication
+    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
 
