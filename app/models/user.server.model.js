@@ -82,7 +82,7 @@ UserSchema.statics.findOneByUsername = function(username, callback){
 };
 
 /* function findUniqueUsername(username)
- * It finds a Username with suffix
+ * It finds an available Username for new users
  */
 UserSchema.statics.findUniqueUsername = function(username, suffix, callback){
     var _this = this;

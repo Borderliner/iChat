@@ -1,5 +1,7 @@
+//Development cofiguration options
 module.exports = {
-    //Development cofiguration options
+    //Database URL
     db: 'mongodb://localhost/mean-book',
-    sessionSecret: 'DevelopmentSessionSecretString' //Set this string to a random one
+    //Session secret. Change it to a random string
+    sessionSecret: 'DevelopmentSessionSecretString'
 };
