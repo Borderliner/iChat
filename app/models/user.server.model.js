@@ -26,7 +26,7 @@ var UserSchema = new Schema({
         type: String,
         trim: true,
         unique: true,
-        required: true,
+        required: true
     },
     password: {
         type: String,
@@ -47,7 +47,7 @@ var UserSchema = new Schema({
     providerData: {},
     website: {
         type: String,
-        required: false,
+        required: false
     },
     created: {
         type: Date,
