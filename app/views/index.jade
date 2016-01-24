@@ -17,9 +17,7 @@ html(lang=en, xmlns:ng='http://angularjs.org')
         br
         a(href='/signin') Sign In
 
-    section
-      input(type='text', id='text1', ng-model='name')
-      input(type='text', id='text2', ng-model='name')
+    section(ng-include="'example/views/example.client.view.html'")
 
     script(type='text/javascript', src='/lib/angular/angular.min.js')
     script(type='text/javascript', src='/application.js')
