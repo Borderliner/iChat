@@ -4,7 +4,8 @@
   "description": "A simple IRC-Like chat",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jadeify": "bash scripts/jadeify.sh"
   },
   "repository": {
     "type": "git",
