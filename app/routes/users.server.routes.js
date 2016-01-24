@@ -22,7 +22,7 @@ module.exports = function(app){
 
     app.route('/signup')
         .get(users.renderSignUp)
-        .post(users.signUp);
+        .post(users.signup);
     app.route('/signin')
         .get(users.renderSignIn)
         .post(passport.authenticate('local', {

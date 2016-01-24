@@ -6,10 +6,13 @@ html
     div
       if userFullName
         h3 Welcome + ', ' + userFullName
+        br
         a(href='/signout')
       else
         h3 Welcome!
-        a(href='/signup')
-        a(href='/signin')
+        br
+        a(href='/signup') Sign Up
+        br
+        a(href='/signin') Sign In
     
     img(src="img/nodejs.png")
