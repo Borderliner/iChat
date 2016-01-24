@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jadeify": "bash scripts/jadeify.sh"
+    "jadeify": "bash scripts/jadeify.sh",
+    "start": "bash scripts/startup.sh 3000"
   },
   "repository": {
     "type": "git",
