@@ -5,7 +5,9 @@ html(lang=en)
   body
     div
       if userFullName
-        h3 Welcome + ', ' + userFullName
+        h3
+          | Welcome,
+          = ' ' + userFullName
         br
         a(href='/signout')
       else
