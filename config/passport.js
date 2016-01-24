@@ -3,7 +3,7 @@ var passport = require('passport'),
     mongoose = require('mongoose');
 
 module.exports = function(){
-    var User = require('mongoose').model('User');
+    var User = mongoose.model('User');
 
     //Saves user.id in session
     passport.serializeUser(function(user, done){
@@ -12,7 +12,7 @@ module.exports = function(){
 
     //Retrieves user from it's ID saved in session
     passport.deserializeUser(function(id, done) {
-        User.fineOne({_id: id}, '-password -salt', function(err, user){
+        User.findOne({_id: id}, '-password -salt', function(err, user){
             done(err, user);
         });
     });
