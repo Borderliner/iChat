@@ -18,8 +18,10 @@ html(lang=en, xmlns:ng='http://angularjs.org')
         a(href='/signin') Sign In
 
     section(ng-view)
+
+    - var pushedUser = user;
     script(type='text/javascript').
-      window.user = user || null;
+      window.user = pushedUser || null;
 
     script(type='text/javascript', src='/lib/angular/angular.min.js')
     script(type='text/javascript', src='/lib/angular-route/angular-route.min.js')
