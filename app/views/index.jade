@@ -4,7 +4,7 @@ html(lang=en, xmlns:ng='http://angularjs.org')
     title= title
   body
     div
-      if userFullName
+      if user
         h3
           | Welcome,
           = ' ' + userFullName
@@ -18,6 +18,8 @@ html(lang=en, xmlns:ng='http://angularjs.org')
         a(href='/signin') Sign In
 
     section(ng-view)
+    script(type='text/javascript').
+      window.user = user || null;
 
     script(type='text/javascript', src='/lib/angular/angular.min.js')
     script(type='text/javascript', src='/lib/angular-route/angular-route.min.js')
