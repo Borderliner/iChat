@@ -10,6 +10,6 @@ exports.render = function(req, res){
     res.render('index', {
         title: "Welcome!", //Passes title variable to index.jade
         userFullName: req.user ? req.user.fullName : '',
-        user: JSON.stringify(req.user)
+        userObject: JSON.stringify(req.user)
     });
 };

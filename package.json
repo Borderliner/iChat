@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "jadeify": "bash scripts/jadeify.sh",
-    "start": "bash scripts/startup.sh 3000"
+    "start": "bash scripts/startup.sh 4500"
   },
   "repository": {
     "type": "git",

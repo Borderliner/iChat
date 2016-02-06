@@ -4,17 +4,17 @@ var users = require('../../app/controllers/users.server.controller'),
 
 module.exports = function(app){
     app.route('/users')
-        //POST /users -> users.create()
+        //POST /user -> users.create()
         .post(users.create)
-        //GET /users -> users.list()
+        //GET /user -> users.list()
         .get(users.list);
 
-    app.route('/users/:userId')
-        //GET /users/[id] -> users.read()
+    app.route('/user/:userId')
+        //GET /user/[id] -> users.read()
         .get(users.read)
-        //PUT /users/[id] -> users.update()
+        //PUT /user/[id] -> users.update()
         .put(users.update)
-        //DELETE /users/[id] -> users.delete()
+        //DELETE /user/[id] -> users.delete()
         .delete(users.delete);
 
     //Fills the userId part of URL with the content returned by users.userById

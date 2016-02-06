@@ -4,7 +4,7 @@ html(lang=en, xmlns:ng='http://angularjs.org')
     title= title
   body
     div
-      if user
+      if userObject
         h3
           | Welcome,
           = ' ' + userFullName
@@ -19,9 +19,11 @@ html(lang=en, xmlns:ng='http://angularjs.org')
 
     section(ng-view)
 
-    - var pushedUser = user;
-    script(type='text/javascript').
-      window.user = pushedUser || null;
+    if userObject
+      script
+        | window.user = 
+        = userObject
+        | ;
 
     script(type='text/javascript', src='/lib/angular/angular.min.js')
     script(type='text/javascript', src='/lib/angular-route/angular-route.min.js')
@@ -31,3 +33,4 @@ html(lang=en, xmlns:ng='http://angularjs.org')
     script(type='text/javascript', src='/example/controllers/example.client.controller.js')
     script(type='text/javascript', src='/users/users.client.module.js')
     script(type='text/javascript', src='/users/services/authentication.client.service.js')
+    
