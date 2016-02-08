@@ -11,74 +11,74 @@ html(lang=en)
         a(href='/about') About
 
     div.navbar-fixed
-      nav.light-blue.lighten-1(role='navigation', style='z-index: 997;')
-        div.nav-wrapper.container
-          a#logo-container.brand-logo(href='/') iChat
-          ul.right.hide-on-med-and-down
-            li
-              a(href='/signup') Register
-            li
-              a(href='/signin') Login
-          a.button-collapse(data-activates='nav-mobile', href='#')
-            i.material-icons menu
-      div.container
-        div.row
+    nav.light-blue.lighten-1(role='navigation', style='z-index: 997;')
+      div.nav-wrapper.container
+        a#logo-container.brand-logo(href='/') iChat
+        ul.right.hide-on-med-and-down
+          li
+            a(href='/signup') Register
+          li
+            a(href='/signin') Login
+        a.button-collapse(data-activates='nav-mobile', href='#')
+          i.material-icons menu
+    div.container
+      div.row
+        br
+        br
+        br
+        div.row.center
+          h1.header.black-text Login
+        each val in messages
+          blockquote
+            div.flash= val
+          br
+          br
+        
+        form(action='/signin', method='post')
+          div.input-field
+            input(type='text', name='username')
+            label(for='username') Username:
+          br
+          div.input-field
+            input(type='password', name='password')
+            label(for='password') Password:
           br
           br
           br
           div.row.center
-            h1.header.black-text Login
-          each val in messages
-            blockquote
-              div.flash= val
-            br
-            br
-          
-          form(action='/signin', method='post')
-            div.input-field
-              input(type='text', name='username')
-              label(for='username') Username:
-            br
-            div.input-field
-              input(type='password', name='password')
-              label(for='password') Password:
-            br
-            br
-            br
-            div.row.center
-              button.btn.btn-large.waves-effect.waves-light.orange(type='submit') Sign In!
-            br
-            br
-            br
+            button.btn.btn-large.waves-effect.waves-light.orange(type='submit') Sign In!
+          br
+          br
+          br
 
-      footer.page-footer.orange
+    footer.page-footer.orange
+      div.container
+        div.row
+          div.col.l6.s12
+            h5.white-text iChat = Simplicity + Elegance
+            p.grey-text.text-lighten-4.
+              iChat is a simple online chat webapp, created using MEAN stack, which is a combination of MongoDB, Express,
+               AngularJS and NodeJS technologies, plus the beloved Socket.io. It uses Materialize for it's UI components.
+          div.col.l3.s12
+            h5.white-text Settings
+            ul
+              li
+                a.white-text(href='#') None defined yet!
+          div.col.l3.s12
+            h5.white-text Useful Links
+            ul
+              li
+                a.white-text(href='/signup') Registration Form
+              li
+                a.white-text(href='/signin') Login
+              li
+                a.white-text(href='/about') About iChat
+                  
+      div.footer-copyright
         div.container
-          div.row
-            div.col.l6.s12
-              h5.white-text iChat = Simplicity + Elegance
-              p.grey-text.text-lighten-4.
-                iChat is a simple online chat webapp, created using MEAN stack, which is a combination of MongoDB, Express,
-                 AngularJS and NodeJS technologies, plus the beloved Socket.io. It uses Materialize for it's UI components.
-            div.col.l3.s12
-              h5.white-text Settings
-              ul
-                li
-                  a.white-text(href='#') None defined yet!
-            div.col.l3.s12
-              h5.white-text Useful Links
-              ul
-                li
-                  a.white-text(href='/signup') Registration Form
-                li
-                  a.white-text(href='/signin') Login
-                li
-                  a.white-text(href='/about') About iChat
-                    
-        div.footer-copyright
-          div.container
-            span Made by: 
-            a.grey-text.text-lighten-4(href='mailto:psyringe@protonmail.com')
-              b Psyringe
+          span Made by: 
+          a.grey-text.text-lighten-4(href='mailto:psyringe@protonmail.com')
+            b Psyringe
       
       script(type='text/javascript', src='/lib/jquery/dist/jquery.min.js')
       script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.min.js')

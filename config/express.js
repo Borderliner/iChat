@@ -51,6 +51,7 @@ module.exports = function(){
     //Registers routes to express
     require('../app/routes/index.server.routes')(app);
     require('../app/routes/users.server.routes')(app);
+    require('../app/routes/chat.server.routes')(app);
     //Sets public folder to /public, which holds client-side files
     app.use(express.static('./public'));
 

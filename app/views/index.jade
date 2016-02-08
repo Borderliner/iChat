@@ -8,14 +8,14 @@ html(lang=en, xmlns:ng='http://angularjs.org')
     link(href='/lib/custom/index.client.stylesheet.css', rel='stylesheet')
   body
     ul#nav-mobile.side-nav
-      if userObject
+      if !userObject
         li
           a(href='/signup') Sign Up
         li
           a(href='/signin') Sign In
-      else
-        li
-          a(href='/about') About
+      
+      li
+        a(href='/about') About
 
 
     div.navbar-fixed
@@ -34,93 +34,93 @@ html(lang=en, xmlns:ng='http://angularjs.org')
           a.button-collapse(data-activates='nav-mobile', href='#')
             i.material-icons menu
 
-      div.section.no-pad-bot#index-banner
-        div.container
-          br
-          br
-          br
-          if userObject
-            h1.header.center.orange-text Welcome back,
-            h5.header.center.black-text
-              =userFullName
-            br
-            div.row.center
-              a#join-chat.btn.btn-large.waves-effect.waves-light.orange(href='/join-chat') CHAT NOW!  
-                i.material-icons send
-            br
-          else
-            h1.header.center.orange-text Welcome!
-            h5.header.center.black-text To get started,
-            br
-            div.row.center
-              a#signup-btn.btn.btn-large.waves-effect.waves-light.orange(href='/signup') SIGNUP NOW!
-            br
-
+    div.section.no-pad-bot#index-banner
       div.container
-        div.section
-          div.row
-            div.col.s12.m4
-              div.icon-block
-                h2.center.light-blue-text
-                  i.material-icons flash_on
-                h5.center Fast and Reliable
-                p.light.
-                  iChat is fast, stable and reliable. You can chat with your friends all the time. We ensure you everything
-                   works. So no worries about server-side problems or UI bugs. 
-            div.col.s12.m4
-              div.icon-block
-                h2.center.light-blue-text
-                  i.material-icons group
-                h5.center All your friends. Together.
-                p.light.
-                  You can see a list of your friends and chat with whom you wish. You can join group conversations and share
-                   your experiences with your friends.
-            div.col.s12.m4
-              div.icon-block
-                h2.center.light-blue-text
-                  i.material-icons settings
-                h5.center Support? Sure!
-                p.light.
-                  We have technicians and geeks over here 24/7, so you can report anything you wish, such as bugs, abuse, etc.
-                  There's also a lovely and active community in which you can find answers for all of your questions.
+        br
+        br
+        br
+        if userObject
+          h1.header.center.orange-text Welcome back,
+          h5.header.center.black-text
+            =userFullName
+          br
+          div.row.center
+            a#join-chat.btn.btn-large.waves-effect.waves-light.orange(href='/chat') CHAT NOW!  
+              i.material-icons send
+          br
+        else
+          h1.header.center.orange-text Welcome!
+          h5.header.center.black-text To get started,
+          br
+          div.row.center
+            a#signup-btn.btn.btn-large.waves-effect.waves-light.orange(href='/signup') SIGNUP NOW!
+          br
 
+    div.container
+      div.section
+        div.row
+          div.col.s12.m4
+            div.icon-block
+              h2.center.light-blue-text
+                i.material-icons flash_on
+              h5.center Fast and Reliable
+              p.light.
+                iChat is fast, stable and reliable. You can chat with your friends all the time. We ensure you everything
+                 works. So no worries about server-side problems or UI bugs. 
+          div.col.s12.m4
+            div.icon-block
+              h2.center.light-blue-text
+                i.material-icons group
+              h5.center All your friends. Together.
+              p.light.
+                You can see a list of your friends and chat with whom you wish. You can join group conversations and share
+                 your experiences with your friends.
+          div.col.s12.m4
+            div.icon-block
+              h2.center.light-blue-text
+                i.material-icons settings
+              h5.center Support? Sure!
+              p.light.
+                We have technicians and geeks over here 24/7, so you can report anything you wish, such as bugs, abuse, etc.
+                There's also a lovely and active community in which you can find answers for all of your questions.
+
+    div.container
+      div.row
+        section(ng-view)
+        if userObject
+          script
+            | window.user = 
+            = userObject
+            | ;
+    
+    footer.page-footer.orange
       div.container
         div.row
-          section(ng-view)
-          if userObject
-            script
-              | window.user = 
-              = userObject
-              | ;
-      
-      footer.page-footer.orange
+          div.col.l6.s12
+            h5.white-text iChat = Simplicity + Elegance
+            p.grey-text.text-lighten-4.
+              iChat is a simple online chat webapp, created using MEAN stack, which is a combination of MongoDB, Express,
+               AngularJS and NodeJS technologies, plus the beloved Socket.io. It uses Materialize for it's UI components.
+          div.col.l3.s12
+            h5.white-text Settings
+            ul
+              li
+                a.white-text(href='#') None defined yet!
+          div.col.l3.s12
+            h5.white-text Useful Links
+            ul
+              li
+                a.white-text(href='/signup') Registration Form
+              li
+                a.white-text(href='/signin') Login
+              li
+                a.white-text(href='/about') About iChat
+                  
+      div.footer-copyright
         div.container
-          div.row
-            div.col.l6.s12
-              h5.white-text iChat = Simplicity + Elegance
-              p.grey-text.text-lighten-4.
-                iChat is a simple online chat webapp, created using MEAN stack, which is a combination of MongoDB, Express,
-                 AngularJS and NodeJS technologies, plus the beloved Socket.io. It uses Materialize for it's UI components.
-            div.col.l3.s12
-              h5.white-text Settings
-              ul
-                li
-                  a.white-text(href='#') None defined yet!
-            div.col.l3.s12
-              h5.white-text Useful Links
-              ul
-                li
-                  a.white-text(href='/signup') Registration Form
-                li
-                  a.white-text(href='/signin') Login
-                li
-                  a.white-text(href='/about') About iChat
-                    
-        div.footer-copyright
-          div.container
-            span Made by: 
-            a.grey-text.text-lighten-4(href='mailto:psyringe@protonmail.com')
-              b Psyringe
+          span Made by: 
+          a.grey-text.text-lighten-4(href='mailto:psyringe@protonmail.com')
+            b Psyringe
               
       script(type='text/javascript', src='/lib/jquery/dist/jquery.min.js')
       script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.min.js')
