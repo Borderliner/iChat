@@ -34,8 +34,52 @@ html
           a.button-collapse(data-activates='nav-mobile', href='#')
             i.material-icons menu
 
-      div.section
+    div.section
+      div.container
+        ul#messages
+        form(action='')
+          div.row
+            div.col.s10.m10.l10
+              input#message(autocomplete='off')
+            div.col.s2.m2.l2
+              button.btn.btn-medium.waves-effect.waves-light.light-blue
+                i.material-icons send
+            div.col.s12.m12.l12
+              span
+                |Logged in as 
+                = userUsername
+
+    footer.page-footer.orange
+      div.container
+        div.row
+          div.col.l6.s12
+            h5.white-text iChat = Simplicity + Elegance
+            p.grey-text.text-lighten-4.
+              iChat is a simple online chat webapp, created using MEAN stack, which is a combination of MongoDB, Express,
+               AngularJS and NodeJS technologies, plus the beloved Socket.io. It uses Materialize for it's UI components.
+          div.col.l3.s12
+            h5.white-text Settings
+            ul
+              li
+                a.white-text(href='#') None defined yet!
+          div.col.l3.s12
+            h5.white-text Useful Links
+            ul
+              li
+                a.white-text(href='/signup') Registration Form
+              li
+                a.white-text(href='/signin') Login
+              li
+                a.white-text(href='/about') About iChat
+                  
+      div.footer-copyright
         div.container
+          span Made by: 
+          a.grey-text.text-lighten-4(href='mailto:psyringe@protonmail.com')
+            b Psyringe
 
 
-    
+    script(type='text/javascript', src='/lib/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.min.js')
+    script(type='text/javascript', src='/lib/custom/chat.client.loader.js')
+    script(type='text/javascript', src='/lib/socket.io-client/socket.io.js')
