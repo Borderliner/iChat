@@ -8,10 +8,15 @@ html(lang=en, xmlns:ng='http://angularjs.org')
     link(href='/lib/custom/index.client.stylesheet.css', rel='stylesheet')
   body
     ul#nav-mobile.side-nav
-            li
-              a(href='') First Link
-            li
-              a(href='') Second Link
+      if userObject
+        li
+          a(href='/signup') Sign Up
+        li
+          a(href='/signin') Sign In
+      else
+        li
+          a(href='/about') About
+
 
     div.navbar-fixed
       nav.light-blue.lighten-1(role='navigation', style='z-index: 997;')

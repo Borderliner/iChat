@@ -7,11 +7,8 @@ html(lang=en)
     link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
   body
     ul#nav-mobile.side-nav
-            li
-              a(href='') First Link
-            li
-              a(href='') Second Link
-              
+      li
+        a(href='/about') About
 
     div.navbar-fixed
       nav.light-blue.lighten-1(role='navigation', style='z-index: 997;')
@@ -22,7 +19,7 @@ html(lang=en)
               a(href='/signup') Register
             li
               a(href='/signin') Login
-          a.button-collapse(data-activities='nav-mobile', href='#')
+          a.button-collapse(data-activates='nav-mobile', href='#')
             i.material-icons menu
       div.container
         div.row
@@ -32,7 +29,10 @@ html(lang=en)
           div.row.center
             h1.header.black-text Login
           each val in messages
-            div.flash= val
+            blockquote
+              div.flash= val
+            br
+            br
           
           form(action='/signin', method='post')
             div.input-field
@@ -82,3 +82,4 @@ html(lang=en)
       
       script(type='text/javascript', src='/lib/jquery/dist/jquery.min.js')
       script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.min.js')
+      script(type='text/javascript', src='/lib/custom/signin.client.loader.js')
