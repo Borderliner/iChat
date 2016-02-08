@@ -1,12 +1,14 @@
 //Requirements
 var config = require('./config'),
     express = require('express'),
+    http = require('http'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     compress = require('compression'),
     methodOverride = require('method-override'),
     session = require('express-session'),
     flash = require('connect-flash'),
+    socketio = require('socket.io'),
     passport = require('passport');
 
 /* This file, modifies the express() object, and passes it along to the
@@ -15,6 +17,9 @@ var config = require('./config'),
  */
 module.exports = function(){
     var app = express();
+    var server = http.createServer(app);
+    var io = socketio.listen(server);
+    require('./socket')(io);
 
     //Formats the requests and logs them on output
     if(process.env.NODE_ENV === 'development'){
@@ -56,5 +61,5 @@ module.exports = function(){
     app.use(express.static('./public'));
 
     //Returns the modified object
-    return app;
+    return server;
 };
