@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.1",
+    "chai": "^3.5.0",
     "compression": "^1.6.0",
     "connect-flash": "^0.1.1",
     "express": "^4.13.3",
@@ -28,6 +29,7 @@
     "jade": "^1.11.0",
     "kerberos": "0.0.18",
     "method-override": "^2.3.5",
+    "mocha": "^2.4.5",
     "mongoose": "^4.3.3",
     "morgan": "^1.6.1",
     "passport": "^0.3.2",
