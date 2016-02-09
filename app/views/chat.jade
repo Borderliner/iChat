@@ -50,16 +50,28 @@ html
                 |Sorry!
 
         else
-          div.messageBoard
-            ul#messages
+          div.row
+            div.col.s12.m8.l8
+              div.messageBoard.card.hoverable
+                ul#messages
+            div.col.m4.l4.hide-on-small-only
+              div.row.center
+                span#online-users.grey-text Online Users
+              div.row.card.hoverable.usersBoard
+                div
+                  ul#userslist
 
           form(action='')
             div.row
               div.col.s8.m10.l10
-                input#message(autocomplete='off')
+                input#message(autocomplete='off', placeholder='Enter message here...')
               div.col.s4.m2.l2
-                button.btn.btn-medium.waves-effect.waves-light.light-blue
-                  |Send
+                div.row.center
+                  button.btn.btn-medium.waves-effect.waves-light.light-blue
+                    |Send
+                div.row.center
+                  span.grey-text
+                    |or press 'Enter'
             div.row
               div.col.s12.m12.l12
                 span#userUsername(style='display: none;')

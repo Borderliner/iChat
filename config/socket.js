@@ -3,16 +3,26 @@ module.exports = function(io){
 
     io.on('connection', function(socket){
         var username = null;
+        var onlineUsers = 0;
+        var userList = [];
         socket.on('user connected', function(data){
             username = data.username;
+            userList.push(data.username);
+            onlineUsers++;
             io.emit('user broadcast', {
-                username: data.username
+                username: data.username,
+                userList: userList,
+                onlineUsers: onlineUsers
             });
         });
 
         socket.on('disconnect', function(){
+            userList = userList.splice(userList.indexOf(username), 1);
+            onlineUsers--;
             io.emit('user disconnected', {
-                username: username
+                username: username,
+                userList: userList,
+                onlineUsers: onlineUsers
             });
             console.log(username + ' disconnected!');
         });
