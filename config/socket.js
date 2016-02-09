@@ -2,15 +2,19 @@ module.exports = function(io){
     var fs = require('fs');
 
     io.on('connection', function(socket){
-        
+        var username = null;
         socket.on('user connected', function(data){
+            username = data.username;
             io.emit('user broadcast', {
                 username: data.username
             });
         });
 
         socket.on('disconnect', function(){
-            console.log('Someone disconnected');
+            io.emit('user disconnected', {
+                username: username
+            });
+            console.log(username + ' disconnected!');
         });
 
         socket.on('chat message', function(data){
