@@ -1,14 +1,15 @@
 module.exports = function(io){
     var fs = require('fs');
+    var onlineUsers = 0;
+    var userList = [];
 
     io.on('connection', function(socket){
         var username = null;
-        var onlineUsers = 0;
-        var userList = [];
         socket.on('user connected', function(data){
             username = data.username;
             userList.push(data.username);
             onlineUsers++;
+            console.log(userList);
             io.emit('user broadcast', {
                 username: data.username,
                 userList: userList,
@@ -17,8 +18,9 @@ module.exports = function(io){
         });
 
         socket.on('disconnect', function(){
-            userList = userList.splice(userList.indexOf(username), 1);
+            userList = userList.splice(userList.indexOf(username) - 1, 1);
             onlineUsers--;
+            console.log(userList);
             io.emit('user disconnected', {
                 username: username,
                 userList: userList,
