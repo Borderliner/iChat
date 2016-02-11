@@ -34,16 +34,6 @@ describe('Routing Unit Tests:', function(){
                 });
         });
 
-        it('should retrieve about page', function(done){
-            request(app).get('/about')
-                .expect(200)
-                .expect('Content-Type', '/html/')
-                .end(function(err, res){
-                    res.status.should.be.exactly(200);
-                    done();
-                });
-        });
-
         it('should retrieve chat page', function(done){
             request(app).get('/chat')
                 .expect(200)
