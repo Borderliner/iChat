@@ -17,7 +17,7 @@ module.exports = function(app){
         //DELETE /user/[id] -> users.delete()
         .delete(users.delete);
 
-    //Fills the userId part of URL with the content returned by users.userById
+    //Sends userId to user.userById in users controller
     app.param('userId', users.userById);
 
     app.route('/signup')
@@ -26,6 +26,7 @@ module.exports = function(app){
     app.route('/signin')
         .get(users.renderSignIn)
         .post(passport.authenticate('local', {
+            //User authentication
             successRedirect: '/',
             failureRedirect: '/signin',
             failureFlash: true
