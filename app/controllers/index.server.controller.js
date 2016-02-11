@@ -7,8 +7,7 @@ exports.render = function(req, res){
         req.session.lastVisit = new Date(Date.now());
     }
     //Renders index.jade
-    res.render('index', {
-        title: "Welcome!", //Passes title variable to index.jade
+    res.render('pages/index', {
         userFullName: req.user ? req.user.fullName : '',
         userObject: JSON.stringify(req.user),
     });

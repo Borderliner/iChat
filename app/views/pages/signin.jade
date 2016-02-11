@@ -1,0 +1,41 @@
+extends ../layout
+
+block vars
+  - var session_user = userObject
+
+block title
+  |Sign In
+
+block body
+  div.container
+    div.row
+      br
+      br
+      br
+      div.row.center
+        h1.header.black-text Login
+      each val in messages
+        blockquote
+          div.flash= val
+        br
+        br
+      
+      form(action='/signin', method='post')
+        div.input-field
+          input(type='text', name='username')
+          label(for='username') Username:
+        br
+        div.input-field
+          input(type='password', name='password')
+          label(for='password') Password:
+        br
+        br
+        br
+        div.row.center
+          button.btn.btn-large.waves-effect.waves-light.orange(type='submit') Sign In!
+        br
+        br
+        br
+
+block scripts
+  script(type='text/javascript', src='/lib/custom/signin.client.loader.js')

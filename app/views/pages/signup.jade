@@ -1,0 +1,44 @@
+extends ../layout
+
+block vars
+  - var session_user = userObject
+
+block title
+  |Sign Up
+
+block body
+  div.container
+    div.row
+      br
+      br
+      br
+      div.row.center
+        h1.header.black-text Register
+      each val in messages
+        blockquote
+          div.flash= val
+        br
+        br
+          
+      form(action='/signup', method='post')
+        div.input-field
+          input(type='text', name='firstName')
+          label(for='firstName') First Name:
+        div.input-field
+          input(type='text', name='lastName')
+          label(for='lastName') Last Name:
+        div.input-field
+          input(type='email', name='email')
+          label(for='email') Email:
+        div.input-field
+          input(type='text', name='username')
+          label(for='username') Username:
+        div.input-field
+          input(type='password', name='password')
+          label(for='password') Password:
+        br
+        div.row.center
+          button.btn.btn-large.waves-effect.waves-light.orange(type='submit') Sign up!
+
+block scripts
+  script(type='text/javascript', src='/lib/custom/signup.client.loader.js')

@@ -1,0 +1,65 @@
+extends ../layout
+
+block vars
+  - var session_user = userObject
+
+block title
+  |Home
+
+block css
+  link(rel='stylesheet', type='text/css', href='/lib/custom/index.client.stylesheet.css')
+
+block body
+  div.section.no-pad-bot#index-banner
+    div.container
+      br
+      br
+      br
+      if userObject
+        h1.header.center.orange-text Welcome back,
+        h5.header.center.black-text
+          =userFullName
+        br
+        div.row.center
+          a#join-chat.btn.btn-large.waves-effect.waves-light.orange(href='/chat') CHAT NOW!  
+            i.material-icons.right send
+        br
+      else
+        h1.header.center.orange-text Welcome!
+        h5.header.center.black-text To get started,
+        br
+        div.row.center
+          a#signup-btn.btn.btn-large.waves-effect.waves-light.orange(href='/signup') SIGNUP NOW!
+        br
+
+  div.container
+    div.section
+      div.row
+        div.col.s12.m4
+          div.icon-block
+            h2.center.light-blue-text
+              i.material-icons flash_on
+            h5.center Fast and Reliable
+            p.light.
+              iChat is fast, stable and reliable. You can chat with your friends all the time. We ensure you everything
+               works. So no worries about server-side problems or UI bugs. 
+        div.col.s12.m4
+          div.icon-block
+            h2.center.light-blue-text
+              i.material-icons group
+            h5.center All your friends. Together.
+            p.light.
+              You can see a list of your friends and chat with whom you wish. You can join group conversations and share
+               your experiences with your friends.
+        div.col.s12.m4
+          div.icon-block
+            h2.center.light-blue-text
+              i.material-icons settings
+            h5.center Support? Sure!
+            p.light.
+              We have technicians and geeks over here 24/7, so you can report anything you wish, such as bugs, abuse, etc.
+              There's also a lovely and active community in which you can find answers for all of your questions.
+
+
+block scripts
+  script(type='text/javascript', src='/lib/custom/index.client.loader.js')

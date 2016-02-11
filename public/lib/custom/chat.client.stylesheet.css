@@ -1,0 +1,48 @@
+.messageBoard{
+    border: solid;
+    border-width: 1px;
+    border-color: lightblue;
+    height: 400px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding-top: 0px;
+    overflow: auto;
+}
+
+.usersBoard{
+    border: solid;
+    border-width: 1px;
+    border-color: lightblue;
+    height: 379px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding-top: 0px;
+    overflow: auto;
+}
+
+#messages li{
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#messages li:nth-child(odd){
+    background: rgba(41, 182, 246, 0.22);
+}
+
+#userslist li{
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#userslist li:nth-child(odd){
+    background: rgba(255, 152, 0, 0.35);
+}
+
+.server-message{
+    color: gray;
+}
+.multiple-brs{
+    height: 400px;
+}

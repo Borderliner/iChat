@@ -1,0 +1,77 @@
+extends ../layout
+
+block vars
+  - var session_user = userObject
+
+block title
+  |Main Chatroom
+
+block css
+  link(rel='stylesheet', type='text/css', href='/lib/custom/chat.client.stylesheet.css')
+
+block body
+  div.section
+    div.container
+      div.center
+        h4.header.black-text
+          |Main Chatroom
+      if !userObject
+        div.row
+          blockquote You do not have permission to use chatrooms and chat session will not be initialized. To use iChat, you need to 
+            a(href='/signup') Register
+            |.
+          br
+          br
+          div.center
+            h1.header.black-text
+              |Sorry!
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+
+      else
+        div.row
+          div.col.s12.m8.l8
+            div.messageBoard.card.hoverable
+              ul#messages
+          div.col.m4.l4.hide-on-small-only
+            div.row.center
+              span#online-users.grey-text Online Users
+            div.row.card.hoverable.usersBoard
+              div
+                ul#userslist
+
+        form(action='')
+          div.row
+            div.col.s8.m10.l10
+              input#message(autocomplete='off', placeholder='Enter message here...')
+            div.col.s4.m2.l2
+              div.row.center
+                button.btn.btn-medium.waves-effect.waves-light.light-blue
+                  |Send
+                  i.material-icons.right send
+              div.row.center
+                span.grey-text
+                  |or press 'Enter'
+          div.row
+            div.col.s12.m12.l12
+              span#userUsername(style='display: none;')
+                = userUsername
+              span
+                |Logged in as 
+                = userUsername
+                |. 
+                a(href='/signout') Not you
+                |?
+                
+block scripts
+  if userObject
+    script(type='text/javascript', src='/lib/socket.io-client/socket.io.js')
+    
+  script(type='text/javascript', src='/lib/custom/chat.client.loader.js')
+  

@@ -1,3 +1,7 @@
 #signup-btn {
     width: 250px;
 }
+
+.icon-block .material-icons{
+    font-size: inherit;
+}
