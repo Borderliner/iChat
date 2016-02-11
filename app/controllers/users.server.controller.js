@@ -2,6 +2,7 @@
 var User = require('mongoose').model('User'),
     passport = require('passport');
 
+//Gets an error code and retrieves the message
 var getErrorMessage = function(err){
     var message = '';
 
@@ -26,48 +27,68 @@ var getErrorMessage = function(err){
     return message;
 };
 
+//Renders Sign In page
 exports.renderSignIn = function(req, res, next){
+    //Show this page only if user is NOT logged in
     if(!req.user){
         res.render('pages/signin', {
+            //Pass flash notifications as messages
             messages: req.flash('error') || req.flash('info')
         });
     } else {
+        //Redirect to Home if logged in
         return res.redirect('/');
     }
 };
 
+//Renders Sign Up page
 exports.renderSignUp = function(req, res, next){
+    //Show this page only if user is NOT logged in
     if(!req.user){
         res.render('pages/signup', {
+            //Pass flash notifications as messages
             messages: req.flash('error')
         });
+    } else {
+        //Redirect to Home if logged in
+        return res.redirect('/');
     }
 };
 
+//Actual Sign Up function
 exports.signup = function(req, res, next){
+    //Do not sign up if a user is currently logged in
     if(!req.user){
+        //Creates a User out of request's body
         var user = new User(req.body);
         var message = null;
 
         user.provider = 'local';
         user.save(function(err){
             if(err){
+                //Send err to getErrorMessage to extract messages from error code
                 message = getErrorMessage(err);
+                //Fill the flash with error message
                 req.flash('error', message);
+                //Return to signup page if error occurs
                 return res.redirect('/signup');
             }
+            //Login user after sign up
             req.login(user, function(err){
                 if(err){
                     return next(err);
                 }
+                //And return it to homepage
                 return res.redirect('/');
             });
         });
     } else {
+        //Return to homepage if already signed in
         return res.redirect('/');
     }
 };
 
+//Sign Out action
 exports.signout = function(req, res){
     req.logout();
     res.redirect('/');
