@@ -1,11 +1,10 @@
 {
-  "name": "meantest",
+  "name": "ichat-psyringe",
   "version": "1.0.0",
   "description": "A simple IRC-Like chat",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "jadeify": "bash scripts/jadeify.sh",
+    "test": "bash scripts/test.sh",
     "start": "bash scripts/startup.sh 4500"
   },
   "repository": {
