@@ -62,17 +62,17 @@ describe('User Controller Unit Tests:', function(){
             };
 
             request(app).post('/user')
-            .type('json')
-            .send(user)
-            .expect(200)
-            .end(function(err, res){
-                res.body.should.be.an.Object;
-                res.body.should.have.property('firstName');
-                res.body.should.have.property('email');
-                res.body.should.have.property('password');
-                res.body.should.have.property('username');
-                done();
-            });
+                .type('json')
+                .send(user)
+                .expect(200)
+                .end(function(err, res){
+                    res.body.should.be.an.Object;
+                    res.body.should.have.property('firstName');
+                    res.body.should.have.property('email');
+                    res.body.should.have.property('password');
+                    res.body.should.have.property('username');
+                    done();
+                });
         })
     });
 
@@ -82,17 +82,32 @@ describe('User Controller Unit Tests:', function(){
                 email: 'walter@yahoo.com'
             };
             request(app).put('/user/' + user.id)
-            .type('json')
-            .send(newEmail)
-            .expect(200)
-            .expect('Content-Type', '/json/')
-            .end(function(err, res){
-                res.body.should.be.an.Object;
-                res.body.should.have.property('email', newEmail.email);
-                done();
-            });
+                .type('json')
+                .send(newEmail)
+                .expect(200)
+                .expect('Content-Type', '/json/')
+                .end(function(err, res){
+                    res.body.should.be.an.Object;
+                    res.body.should.have.property('email', newEmail.email);
+                    done();
+                });
         });
-    })
+    });
+
+    describe('Testing the DELETE method:', function(){
+        it('should be able to delete a user', function(done){
+            request(app).delete('/user/' + user.id)
+                .expect(200)
+                .expect('Content-Type', '/json/')
+                .end(function(err, res){
+                    User.findById(user.id, function(err, foundUser){
+                        should.not.exist(foundUser);
+                    });
+                    res.body.should.be.an.Object;
+                    done();
+                });
+        });
+    });
 
     afterEach(function(done){
         User.remove(function(){
