@@ -21,7 +21,6 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.1",
-    "chai": "^3.5.0",
     "compression": "^1.6.0",
     "connect-flash": "^0.1.1",
     "express": "^4.13.3",
@@ -35,5 +34,9 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "socket.io": "^1.4.5"
+  },
+  "devDependencies": {
+    "should": "^8.2.2",
+    "supertest": "^1.1.0"
   }
 }

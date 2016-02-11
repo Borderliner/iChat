@@ -137,7 +137,9 @@ exports.update = function(req, res, next){
         }
         else {
             //Returns the newly updated user's info as JSON
-            res.json(user);
+            User.findById(req.user.id, function(err, foundUser){
+                res.json(foundUser);
+            });
         }
     });
 };

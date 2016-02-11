@@ -15,6 +15,8 @@ var passport = passport();
  *    Example: node server.js 3000
  *    This will run the app on port 3000
  */
-var port = process.argv[2];
+var port = 4500;
 app.listen(port);
 console.log('Server is running. Listening to port ' + port);
+
+module.exports = app;
