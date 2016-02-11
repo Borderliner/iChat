@@ -57,6 +57,8 @@ module.exports = function(){
     require('../app/routes/index.server.routes')(app);
     require('../app/routes/users.server.routes')(app);
     require('../app/routes/chat.server.routes')(app);
+    //404 Error Page. Keep it last
+    require('../app/routes/404.server.routes')(app);
     //Sets public folder to /public, which holds client-side files
     app.use(express.static('./public'));
 

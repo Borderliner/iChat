@@ -1,0 +1,31 @@
+extends ../layout
+
+block vars
+  - var session_user = userObject
+
+block title
+  |404 Not Found
+
+block body
+  div.container
+    div.row.center
+      br
+      br
+      br
+      br
+      br
+      h1.heading.black-text
+        |404 ERROR
+    div.row.center
+      br
+      h3.heading.grey-text
+        |The page you were looking for could not be found
+      br
+      br
+      br
+      br
+      br
+      br
+
+block scripts
+  script(type='text/javascript', src='/lib/custom/signin.client.loader.js')
