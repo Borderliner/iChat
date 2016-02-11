@@ -119,6 +119,7 @@ UserSchema.set('toJSON', {
     virtuals: true
 });
 
+//Format website field if it does not contain http:// prefix
 UserSchema.path('website').get(function(url){
     if(!url){
         return url;
@@ -151,4 +152,5 @@ UserSchema.pre('save', function(next){
     next();
 });
 
+//Register the UserSchema as User to mongoose
 mongoose.model('User', UserSchema);
