@@ -34,8 +34,12 @@ module.exports = function(io){
             //Log all chats
             var today = new Date();
             today = today.getFullYear() + '-' + today.getMonth() + 1 + '-' + today.getDate();
+            var chat_dir = './public/chat_logs';
+            if(!fs.existsSync(chat_dir)){
+                fs.mkdirSync(chat_dir);
+            }
             fs.appendFile('./public/chat_logs/' + today + '.log',
-                data.username + ': ' + data.message + '\n',
+                data.username + ' [' + (new Date()).getHours() + ':' + (new Date()).getMinutes() + '] -> ' + data.message + '\n',
                 'utf-8',
                 function(err){
                     if(err) throw err;
