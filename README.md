@@ -1,5 +1,6 @@
-# iChat
-A simple IRC-Like chat powered by Node.js<br>
+# iChat  <img src="https://travis-ci.org/Psyringe/iChat.svg?branch=master"></img>
+A simple IRC-Like chat powered by Node.js
+<br>
 <br>
 ###Installation
 `cd` into the projects root folder and run `npm install` and `bower install`.
