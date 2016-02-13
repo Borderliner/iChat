@@ -6,7 +6,7 @@ var msg_appender = function(msg, options){
     $('div.messageBoard').scrollTop($('div.messageBoard')[0].scrollHeight);
     //Remove the first message if message count reaches 30
     var countMessages = $('ul#messages li').length;
-    if(countMessages > 30){
+    if(countMessages > 60){
         $('ul#messages li:first-child').remove();
     }
 };
