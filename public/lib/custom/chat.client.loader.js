@@ -3,6 +3,7 @@ var msg_appender = function(msg, options){
         $('#messages').append('<li class="server-message">' + msg + '</li>');
     else
         $('#messages').append('<li>' + msg + '</li>');
+    $('div.messageBoard').scrollTop($('div.messageBoard')[0].scrollHeight);
 };
 
 var user_appender = function(userList){
