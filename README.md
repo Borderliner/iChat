@@ -1,4 +1,4 @@
-# iChat  <img src="https://travis-ci.org/Psyringe/iChat.svg?branch=master"></img>
+# iChat
 A simple IRC-Like chat powered by Node.js
 <br>
 <br>
