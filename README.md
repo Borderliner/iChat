@@ -20,4 +20,4 @@ See this tutorial on how to run it on your server using nginx:<br>
 <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04" target="_blank">Deploying Nodejs Apps - Digital Ocean</a>
 <br>
 <br>
-Psyringe: <a href="mailto:psyringe@protonmail.com">[psyringe@protonmail.com]</a>
+Borderliner: <a href="mailto:hajianpour.mr@gmail.com">[hajianpour.mr@gmail.com]</a>
